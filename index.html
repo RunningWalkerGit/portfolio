@@ -12,6 +12,19 @@
       background: #0a0a0a;
       color: #fff;
       overflow-x: hidden;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #fa5b11 0%, transparent 60%);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease-out;
     }
 
     .section {
@@ -134,6 +147,7 @@
   </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
   <div class="orb"></div>
   <div class="orb"></div>
 
@@ -160,7 +174,7 @@
       <div class="experience-content">
         <h3>Server Manager | StellarSurvivors</h3>
         <span>2024 – Present</span>
-        <p>At StellarSurvivors as a Server Manager, I have spent extensive time overseeing all server operations, and creating a welcoming and engaging onboarding process for all staff members. I believe that Human Resources teams should run with a high level of integrity, and do more than just reviewing applications. At StellarSurvivors, I created Onboarding Documents, Staff Handbooks, and other documents formatted with StellarSurvivors’s branding. These documents help explain what resources they have access to, and help them get comfortable in their role.</p>
+        <p>At StellarSurvivors as a Server Manager, I have spent extensive time overseeing all server operations, and creating a welcoming and engaging onboarding process for all staff members...</p>
       </div>
     </div>
 
@@ -169,7 +183,7 @@
       <div class="experience-content">
         <h3>HR Manager | GC NETWORK</h3>
         <span>2024 – Present</span>
-        <p>As a Human Resources Manager, I have focused on player experience as well as hiring and recruitment. At GC Network, I have created ticket surveys where players can rate their ticket and support experience. After each submission, we changed staff material and hosted trainings with the data we collect, helping change and influence how the support experience works for everyone involved. I also reviewed applications, administered documents, and created similar staff handbooks and staff material that keep everyone on the same page.</p>
+        <p>As a Human Resources Manager, I have focused on player experience as well as hiring and recruitment...</p>
       </div>
     </div>
 
@@ -178,7 +192,7 @@
       <div class="experience-content">
         <h3>Sales Manager | NetherGames</h3>
         <span>2022 – 2023</span>
-        <p>NetherGames was a great experience that taught me a lot. This server truly helped me learn how to analyze data like purchases, and work with Development and Design teams to bring more successful products to the table. This helped drastically boost the server's net income, and help build it up as large as it is today. Due to personal issues, I no longer had time to fulfill my role at NetherGames, but it was always a great experience and I’d definitely work with them in the future.</p>
+        <p>NetherGames was a great experience that taught me a lot. This server truly helped me learn how to analyze data...</p>
       </div>
     </div>
 
@@ -187,7 +201,7 @@
       <div class="experience-content">
         <h3>Configuration | 2b2t</h3>
         <span>2021 – 2023</span>
-        <p>My experience at this server helped shape the knowledge of servers and technology that I have today. I configured plugins, created item textures, looked into bug reports, and learned a lot of general information on how servers work. Now, I am confident in my configuration abilities in case any issues arise that a fresh set of eyes might help solve. After I realized this wasn’t entirely for me, I left this server to pursue management roles.</p>
+        <p>My experience at this server helped shape the knowledge of servers and technology that I have today...</p>
       </div>
     </div>
   </section>
@@ -201,5 +215,13 @@
   <footer class="section">
     <p>&copy; 2025 RunningWalker. All rights reserved.</p>
   </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate3d(${e.clientX - 15}px, ${e.clientY - 15}px, 0)`;
+    });
+  </script>
 </body>
 </html>
