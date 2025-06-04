@@ -2,221 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RunningWalker | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RunningWalker Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #0b0b0b;
-      color: white;
+      background: #0a0a0a;
+      color: #fff;
       overflow-x: hidden;
-      cursor: crosshair;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      padding: 40px;
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      background: #333;
-      border: 4px solid #fa5b11;
-      border-radius: 10px;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 0 25px #fa5b11;
-      transition: transform 0.3s ease;
-    }
-
-    .name-title {
-      transition: transform 0.3s ease;
-    }
-
-    .name-title h1 {
-      font-size: 48px;
-      margin: 0;
-      font-weight: 800;
-      color: #fa5b11;
-      text-shadow: 0 0 10px #fa5b11;
-    }
-
-    .name-title p {
-      font-size: 18px;
-      color: #ccc;
-      margin-top: 8px;
     }
 
     .section {
-      padding: 40px;
+      padding: 60px 40px;
       position: relative;
-      z-index: 2;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    .section h2 {
-      color: #fa5b11;
-      font-size: 32px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #fa5b11;
-    }
-
-    .section p {
-      line-height: 1.7;
       max-width: 900px;
-      font-size: 16px;
-      color: #ddd;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: #fa5b11;
+      text-shadow: 0 0 10px #fa5b11aa;
+      margin-bottom: 10px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 60px 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #fa5b11, #f74316);
+      border-radius: 12px;
+      box-shadow: 0 0 20px #fa5b11;
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .intro p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #aaa;
     }
 
     .experience-entry {
       display: flex;
-      align-items: flex-start;
-      gap: 20px;
       margin-bottom: 30px;
-      animation: fadeInUp 1s ease;
     }
 
     .experience-line {
       width: 6px;
+      background: linear-gradient(to bottom, #fa5b11, #f74316);
       border-radius: 10px;
-      flex-shrink: 0;
-      background: linear-gradient(to bottom, #fa5b11, #f74316, #ff7f50, #ff6b3d);
-      animation: pulseGlow 4s infinite;
+      margin-right: 20px;
     }
 
-    .experience-content {
-      max-width: 800px;
+    .experience-line.alt {
+      background: linear-gradient(to bottom, #f74316, #fa5b11);
     }
 
     .experience-content h3 {
-      margin: 0;
-      font-size: 20px;
-      color: #fa5b11;
+      margin: 0 0 5px;
     }
 
     .experience-content span {
+      color: #ccc;
+      font-size: 0.9rem;
       display: block;
-      font-size: 14px;
-      color: #999;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .glow-circle {
+    .experience-content p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .contact {
+      margin-top: 40px;
+    }
+
+    .orb {
       position: absolute;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #f74316 0%, transparent 70%);
       border-radius: 50%;
-      background: radial-gradient(circle, #f74316 0%, transparent 60%);
-      animation: pulse 5s infinite;
       pointer-events: none;
-      z-index: 1;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
     }
 
-    .glow1 {
-      width: 250px;
-      height: 250px;
-      top: 5%;
-      left: 75%;
+    .orb:nth-child(1) {
+      top: 100px;
+      right: 100px;
     }
 
-    .glow2 {
-      width: 180px;
-      height: 180px;
-      bottom: 10%;
-      left: 5%;
-      animation-delay: 2s;
+    .orb:nth-child(2) {
+      bottom: 80px;
+      left: 50px;
+      width: 100px;
+      height: 100px;
     }
 
-    .glow3 {
-      width: 120px;
-      height: 120px;
-      top: 50%;
-      right: 5%;
-      animation-delay: 1s;
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
 
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.7;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 0.3;
-      }
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 8px #fa5b11;
-      }
-      50% {
-        box-shadow: 0 0 20px #f74316;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .experience-entry {
-        flex-direction: column;
-      }
-
-      .experience-line {
-        height: 6px;
-        width: 80px;
-      }
+    body:hover * {
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 <body>
-  <div class="glow-circle glow1"></div>
-  <div class="glow-circle glow2"></div>
-  <div class="glow-circle glow3"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
 
-  <header id="header">
-    <div class="profile-pic" id="pic" style="background-image: url('your-image.jpg');"></div>
-    <div class="name-title" id="title">
+  <header class="header">
+    <div class="profile-pic"></div>
+    <div class="intro">
       <h1>RunningWalker</h1>
       <p>Server Admin • Project Manager • Minecraft Enthusiast</p>
     </div>
   </header>
 
-  <section class="section" id="about">
+  <section class="section">
     <h2>About Me</h2>
     <p>
-      I'm RunningWalker, a dedicated Minecraft manager and team leader with years of experience crafting unique gameplay environments, hiring top-tier talent, and organizing large-scale server operations with style. I believe that staff culture and internal systems are as important as game mechanics, and I strive to build both with care.
+      I'm RunningWalker, a dedicated Minecraft manager and team leader with years of experience crafting unique gameplay environments, hiring top-tier talent, and organizing large-scale server operations with style.
     </p>
   </section>
 
@@ -233,11 +157,11 @@
     </div>
 
     <div class="experience-entry">
-      <div class="experience-line"></div>
+      <div class="experience-line alt"></div>
       <div class="experience-content">
         <h3>HR Manager | GC NETWORK</h3>
         <span>2024 – Present</span>
-        <p>As a Human Resources Manager, I have focused on player experience as well as hiring and recruitment. At GC Network, I created ticket surveys where players could rate their support experience. We used this feedback to update staff material and host trainings, directly improving support quality. I also reviewed applications, administered documents, and created handbooks to keep the staff team aligned.</p>
+        <p>As a Human Resources Manager, I have focused on player experience as well as hiring and recruitment. At GC Network, I have created ticket surveys where players can rate their ticket and support experience. After each submission, we changed staff material and hosted trainings with the data we collect, helping change and influence how the support experience works for everyone involved. I also reviewed applications, administered documents, and created similar staff handbooks and staff material that keep everyone on the same page.</p>
       </div>
     </div>
 
@@ -246,44 +170,28 @@
       <div class="experience-content">
         <h3>Sales Manager | NetherGames</h3>
         <span>2022 – 2023</span>
-        <p>NetherGames was a great experience that taught me a lot. This server truly helped me learn how to analyze data like purchases, and work with Development and Design teams to bring more successful products to the table. This helped drastically boost the server’s net income, and grow it into what it is today. I left due to personal reasons but hold the team in high regard and would happily work with them again.</p>
+        <p>NetherGames was a great experience that taught me a lot. This server truly helped me learn how to analyze data like purchases, and work with Development and Design teams to bring more successful products to the table. This helped drastically boost the server's net income, and help build it up as large as it is today. Due to personal issues, I no longer had time to fulfill my role at NetherGames, but it was always a great experience and I’d definitely work with them in the future.</p>
       </div>
     </div>
 
     <div class="experience-entry">
-      <div class="experience-line"></div>
+      <div class="experience-line alt"></div>
       <div class="experience-content">
         <h3>Configuration | 2b2t</h3>
         <span>2021 – 2023</span>
-        <p>My experience at this server helped shape the technical knowledge I have today. I configured plugins, created item textures, handled bug reports, and learned the backend structure of servers. This foundational experience gave me confidence in diagnosing issues and improving backend setups. I eventually shifted away from technical roles to pursue management full time.</p>
+        <p>My experience at this server helped shape the knowledge of servers and technology that I have today. I configured plugins, created item textures, looked into bug reports, and learned a lot of general information on how servers work. Now, I am confident in my configuration abilities in case any issues arise that a fresh set of eyes might help solve. After I realized this wasn’t entirely for me, I left this server to pursue management roles.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section contact">
     <h2>Contact</h2>
-    <p>
-      Discord: <strong>imtheghetto</strong><br>
-      Username: <strong>RunningWalker</strong><br>
-      Email: <strong>runningwalker@example.com</strong>
-    </p>
+    <p>Discord: imtheghetto</p>
+    <p>Email: runningwalker@example.com</p>
   </section>
 
-  <div class="footer">
-    &copy; 2025 RunningWalker. All rights reserved.
-  </div>
-
-  <script>
-    const header = document.getElementById('header');
-    const title = document.getElementById('title');
-    const pic = document.getElementById('pic');
-
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      title.style.transform = `translate(${x}px, ${y}px)`;
-      pic.style.transform = `translate(${x / 2}px, ${y / 2}px)`;
-    });
-  </script>
+  <footer class="section">
+    <p>&copy; 2025 RunningWalker. All rights reserved.</p>
+  </footer>
 </body>
 </html>
