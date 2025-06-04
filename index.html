@@ -4,13 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RunningWalker | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b0b;
       color: white;
       overflow-x: hidden;
+      cursor: crosshair;
     }
 
     header {
@@ -20,6 +26,7 @@
       padding: 40px;
       position: relative;
       z-index: 2;
+      animation: fadeInUp 1.2s ease-out;
     }
 
     .profile-pic {
@@ -27,21 +34,23 @@
       height: 150px;
       background: #333;
       border: 4px solid #fa5b11;
-      border-radius: 8px;
+      border-radius: 10px;
       background-size: cover;
       background-position: center;
-      box-shadow: 0 0 20px #fa5b11;
-      flex-shrink: 0;
+      box-shadow: 0 0 25px #fa5b11;
+      transition: transform 0.3s ease;
     }
 
     .name-title {
-      animation: fadeInUp 1s ease-out;
+      transition: transform 0.3s ease;
     }
 
     .name-title h1 {
       font-size: 48px;
       margin: 0;
+      font-weight: 800;
       color: #fa5b11;
+      text-shadow: 0 0 10px #fa5b11;
     }
 
     .name-title p {
@@ -54,17 +63,20 @@
       padding: 40px;
       position: relative;
       z-index: 2;
+      animation: fadeInUp 1.2s ease-out;
     }
 
     .section h2 {
       color: #fa5b11;
       font-size: 32px;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px #fa5b11;
     }
 
     .section p {
-      line-height: 1.6;
-      max-width: 800px;
+      line-height: 1.7;
+      max-width: 900px;
+      font-size: 16px;
       color: #ddd;
     }
 
@@ -72,22 +84,23 @@
       position: absolute;
       border-radius: 50%;
       background: radial-gradient(circle, #f74316 0%, transparent 60%);
-      animation: pulse 4s infinite;
+      animation: pulse 5s infinite;
       pointer-events: none;
+      z-index: 1;
     }
 
     .glow1 {
-      width: 200px;
-      height: 200px;
-      top: 10%;
-      left: 80%;
+      width: 250px;
+      height: 250px;
+      top: 5%;
+      left: 75%;
     }
 
     .glow2 {
-      width: 150px;
-      height: 150px;
-      bottom: 15%;
-      left: 10%;
+      width: 180px;
+      height: 180px;
+      bottom: 10%;
+      left: 5%;
       animation-delay: 2s;
     }
 
@@ -99,10 +112,17 @@
       animation-delay: 1s;
     }
 
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
       to {
         opacity: 1;
@@ -121,22 +141,24 @@
       }
     }
 
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #555;
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Glowing animated gradient circles -->
   <div class="glow-circle glow1"></div>
   <div class="glow-circle glow2"></div>
   <div class="glow-circle glow3"></div>
 
-  <header>
-    <div class="profile-pic" style="background-image: url('your-image.jpg');"></div>
-    <div class="name-title">
+  <!-- Header with animated cursor-based tilt -->
+  <header id="header">
+    <div class="profile-pic" id="pic" style="background-image: url('your-image.jpg');"></div>
+    <div class="name-title" id="title">
       <h1>RunningWalker</h1>
       <p>Server Admin • Project Manager • Minecraft Enthusiast</p>
     </div>
@@ -154,7 +176,7 @@
   <section class="section" id="experience">
     <h2>Experience</h2>
     <p>
-      (You’ll paste your detailed experience here in a moment — I’ll format it for you next!)
+      (Send me your real experiences and I’ll plug them in beautifully here.)
     </p>
   </section>
 
@@ -162,13 +184,27 @@
     <h2>Contact</h2>
     <p>
       Discord: RunningWalker#0001<br>
-      Email: runningwalker@example.com<br>
-      Website: coming soon.
+      Email: runningwalker@example.com
     </p>
   </section>
 
   <div class="footer">
     &copy; 2025 RunningWalker. All rights reserved.
   </div>
+
+  <!-- JS for interactive motion -->
+  <script>
+    const header = document.getElementById('header');
+    const title = document.getElementById('title');
+    const pic = document.getElementById('pic');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 30;
+      const y = (e.clientY / window.innerHeight - 0.5) * 30;
+
+      title.style.transform = `translate(${x}px, ${y}px)`;
+      pic.style.transform = `translate(${x / 2}px, ${y / 2}px)`;
+    });
+  </script>
 </body>
 </html>
