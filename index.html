@@ -80,6 +80,39 @@
       color: #ddd;
     }
 
+    .experience-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .experience-line {
+      width: 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: linear-gradient(to bottom, #fa5b11, #f74316, #ff7f50, #ff6b3d);
+      animation: pulseGlow 4s infinite;
+    }
+
+    .experience-content {
+      max-width: 800px;
+    }
+
+    .experience-content h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #fa5b11;
+    }
+
+    .experience-content span {
+      display: block;
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
     .glow-circle {
       position: absolute;
       border-radius: 50%;
@@ -141,21 +174,37 @@
       }
     }
 
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 8px #fa5b11;
+      }
+      50% {
+        box-shadow: 0 0 20px #f74316;
+      }
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         text-align: center;
       }
+
+      .experience-entry {
+        flex-direction: column;
+      }
+
+      .experience-line {
+        height: 6px;
+        width: 80px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Glowing animated gradient circles -->
   <div class="glow-circle glow1"></div>
   <div class="glow-circle glow2"></div>
   <div class="glow-circle glow3"></div>
 
-  <!-- Header with animated cursor-based tilt -->
   <header id="header">
     <div class="profile-pic" id="pic" style="background-image: url('your-image.jpg');"></div>
     <div class="name-title" id="title">
@@ -167,24 +216,56 @@
   <section class="section" id="about">
     <h2>About Me</h2>
     <p>
-      Insert a short, dynamic intro here. Something like:
-      <br><br>
-      "I'm RunningWalker, a dedicated Minecraft manager and team leader with years of experience crafting unique gameplay environments, hiring top-tier talent, and organizing large-scale server operations with style."
+      I'm RunningWalker, a dedicated Minecraft manager and team leader with years of experience crafting unique gameplay environments, hiring top-tier talent, and organizing large-scale server operations with style. I believe that staff culture and internal systems are as important as game mechanics, and I strive to build both with care.
     </p>
   </section>
 
   <section class="section" id="experience">
     <h2>Experience</h2>
-    <p>
-      (Send me your real experiences and I’ll plug them in beautifully here.)
-    </p>
+
+    <div class="experience-entry">
+      <div class="experience-line"></div>
+      <div class="experience-content">
+        <h3>Server Manager | StellarSurvivors</h3>
+        <span>2024 – Present</span>
+        <p>At StellarSurvivors as a Server Manager, I have spent extensive time overseeing all server operations, and creating a welcoming and engaging onboarding process for all staff members. I believe that Human Resources teams should run with a high level of integrity, and do more than just reviewing applications. At StellarSurvivors, I created Onboarding Documents, Staff Handbooks, and other documents formatted with StellarSurvivors’s branding. These documents help explain what resources they have access to, and help them get comfortable in their role.</p>
+      </div>
+    </div>
+
+    <div class="experience-entry">
+      <div class="experience-line"></div>
+      <div class="experience-content">
+        <h3>HR Manager | GC NETWORK</h3>
+        <span>2024 – Present</span>
+        <p>As a Human Resources Manager, I have focused on player experience as well as hiring and recruitment. At GC Network, I created ticket surveys where players could rate their support experience. We used this feedback to update staff material and host trainings, directly improving support quality. I also reviewed applications, administered documents, and created handbooks to keep the staff team aligned.</p>
+      </div>
+    </div>
+
+    <div class="experience-entry">
+      <div class="experience-line"></div>
+      <div class="experience-content">
+        <h3>Sales Manager | NetherGames</h3>
+        <span>2022 – 2023</span>
+        <p>NetherGames was a great experience that taught me a lot. This server truly helped me learn how to analyze data like purchases, and work with Development and Design teams to bring more successful products to the table. This helped drastically boost the server’s net income, and grow it into what it is today. I left due to personal reasons but hold the team in high regard and would happily work with them again.</p>
+      </div>
+    </div>
+
+    <div class="experience-entry">
+      <div class="experience-line"></div>
+      <div class="experience-content">
+        <h3>Configuration | 2b2t</h3>
+        <span>2021 – 2023</span>
+        <p>My experience at this server helped shape the technical knowledge I have today. I configured plugins, created item textures, handled bug reports, and learned the backend structure of servers. This foundational experience gave me confidence in diagnosing issues and improving backend setups. I eventually shifted away from technical roles to pursue management full time.</p>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="contact">
     <h2>Contact</h2>
     <p>
-      Discord: RunningWalker#0001<br>
-      Email: runningwalker@example.com
+      Discord: <strong>imtheghetto</strong><br>
+      Username: <strong>RunningWalker</strong><br>
+      Email: <strong>runningwalker@example.com</strong>
     </p>
   </section>
 
@@ -192,7 +273,6 @@
     &copy; 2025 RunningWalker. All rights reserved.
   </div>
 
-  <!-- JS for interactive motion -->
   <script>
     const header = document.getElementById('header');
     const title = document.getElementById('title');
@@ -201,7 +281,6 @@
     document.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
       const y = (e.clientY / window.innerHeight - 0.5) * 30;
-
       title.style.transform = `translate(${x}px, ${y}px)`;
       pic.style.transform = `translate(${x / 2}px, ${y / 2}px)`;
     });
